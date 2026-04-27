@@ -49,3 +49,23 @@ console.log(result.data);
 ```bash
 npm run skill rag_local_qa --question="如何构建 Obsidian MCP 技能系统？"
 ```
+
+## 5. Docker 一键部署
+
+```bash
+npm run docker:up
+```
+
+查看日志：
+
+```bash
+npm run docker:logs
+```
+
+停止服务：
+
+```bash
+npm run docker:down
+```
+
+更多说明见 `docs/docker-deploy.md`。

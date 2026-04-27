@@ -1,0 +1,22 @@
+services:
+  agentskills:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: agentskills-obsidianmcp:latest
+    container_name: agentskills-obsidianmcp
+    restart: unless-stopped
+    environment:
+      OBSIDIAN_VAULT_PATH: /data/vault
+      OLLAMA_BASE_URL: ${OLLAMA_BASE_URL:-http://host.docker.internal:11434}
+      OLLAMA_MODEL: ${OLLAMA_MODEL:-qwen2.5:7b}
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+      OPENAI_BASE_URL: ${OPENAI_BASE_URL:-}
+      OPENAI_MODEL: ${OPENAI_MODEL:-gpt-4o-mini}
+      LOG_LEVEL: ${LOG_LEVEL:-info}
+      BACKUP_DIR: /data/vault/.backups
+      RAG_INDEX_DIR: /data/vault/.cache/rag
+    volumes:
+      - ${OBSIDIAN_VAULT_HOST_PATH:-./vault}:/data/vault
+    stdin_open: true
+    tty: true

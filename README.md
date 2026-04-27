@@ -72,6 +72,30 @@ const result = await agentSkills.run("note_summary", { notePath: "inbox/today.md
 console.log(result);
 ```
 
+### 5. Docker 一键部署
+
+1. 配置 `.env`（至少设置 `OBSIDIAN_VAULT_HOST_PATH` 指向你的本地 Obsidian Vault 目录）
+
+2. 一键启动：
+
+```bash
+npm run docker:up
+```
+
+3. 查看日志：
+
+```bash
+npm run docker:logs
+```
+
+4. 一键停止：
+
+```bash
+npm run docker:down
+```
+
+完整容器部署说明见 `docs/docker-deploy.md`。
+
 ## 统一调用规范
 
 ### MCP 调用
